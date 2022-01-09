@@ -5,7 +5,7 @@ echo example: mkdev i686-elf 11.2.0 2.37
 exit
 fi
 
-export PREFIX="/Cross/$1"
+export PREFIX="/opt/cross/$1"
 export TARGET="$1"
 
 echo Archatecture: $1

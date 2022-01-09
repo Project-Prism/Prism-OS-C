@@ -6,9 +6,9 @@ fi
 
 echo Build set for the $1 archetecture.
 
-/Cross/$1/bin/$1-as Source/Boot.s -o Bin/Boot.o
-/Cross/$1/bin/$1-g++ -c Source/Kernel.c++ -o Bin/Kernel.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
-/Cross/$1/bin/$1-gcc -T Source/Linker.ld -o Bin/PrismOS.bin -ffreestanding -O2 -nostdlib Bin/Boot.o Bin/Kernel.o
+/opt/cross/$1/bin/$1-as Source/Boot.s -o Bin/Boot.o
+/opt/cross/$1/bin/$1-g++ -c Source/Kernel.c++ -o Bin/Kernel.o -ffreestanding -O2 -Wall -Wextra -fno-exceptions -fno-rtti
+/opt/ross/$1/bin/$1-gcc -T Source/Linker.ld -o Bin/PrismOS.bin -ffreestanding -O2 -nostdlib Bin/Boot.o Bin/Kernel.o
 
 mkdir Bin/IsoDir/boot/grub
 cp Bin/PrismOS.bin Bin/IsoDir/boot/PrismOS.bin
