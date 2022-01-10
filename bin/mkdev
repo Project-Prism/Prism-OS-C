@@ -12,7 +12,7 @@ echo Archatecture: $1
 echo gcc version: $2
 echo binutils version: $3
 
-sudo mkdir $PREFIX/Compile
+sudo mkdir -p $PREFIX/Compile
 cd $PREFIX/Compile
 
 echo Downloading binutils...
