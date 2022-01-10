@@ -1,0 +1,12 @@
+ARCH=i686-elf
+BIN=/opt/cross/$ARCH/bin/$ARCH
+
+$BIN-as src/etc/boot.s -o bin/boot.o
+$BIN-gcc -c src/kernel.c -o bin/kernel.o -std=gnu99 -ffreestanding -O2 -Wall -Wextra
+$BIN-gcc -T src/etc/linker.ld -o bin/kernel.bin -ffreestanding -O2 -nostdlib bin/boot.o bin/kernel.o
+
+cp bin/kernel.bin src/ISO/boot/
+cp src/etc/grub.cfg src/ISO/boot/grub
+grub-mkrescue -o bin/PrismOS.iso src/ISO
+
+qemu-system-x86_64 -cdrom bin/PrismOS.iso
