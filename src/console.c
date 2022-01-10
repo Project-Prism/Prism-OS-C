@@ -86,12 +86,25 @@ void putchar(char c)
 void Write(const char* str)
 {
 	for (size_t i = 0; i < strlen(str); i++)
-		putchar(str[i]);
+	{
+		if(str[i] == '\n')
+		{
+			Column = 0;
+			Row++;
+		}
+		else if (str[i] == '\t')
+		{
+			Write("    ");
+		}
+		else
+		{
+			putchar(str[i]);
+		}
+	}
 }
 
 void WriteLine(const char* str)
 {
 	Write(str);
-	Column++;
-	Row = 0;
+	Write("\n");
 }

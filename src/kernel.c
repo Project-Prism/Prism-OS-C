@@ -6,5 +6,8 @@
 void Main(void)
 {
 	Initialize();
-	WriteLine("Hello, kernel World!");
+	WriteLine("Hello, World!");
+	WriteLine("Amogoos");
+	Write("Testing of tab!");
+	WriteLine("\tWorks!");
 }
